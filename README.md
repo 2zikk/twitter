@@ -96,3 +96,12 @@ buckpal
     - 아웃고잉 어댑터 : **`PersistenceAdapter`**
 - **JPA 레포지토리 `repository`**
 - **읽기전용모델 `queryResult`**
+
+### 실행 환경 구축 방법
+프로젝트 루트에서 아래 명령을 실행해주세요.
+```shell
+chmod +x build_and_run.sh && ./build_and_run.sh
+```
+- 위 스크립트는 로컬 머신 프로세서에 따라 docker-compose 파일을 선택하여 실행 환경을 구축합니다.
+- docker 기반 실행환경의 **서버 포트**는 `8080`입니다. 다만 IDE로 서버를 직접 실행하신다면 `55123`입니다.
+- **DB 포트**는 `3311`입니다. **ID**와 **PW**는 각각 `root`, `password`입니다.

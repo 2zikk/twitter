@@ -1,0 +1,37 @@
+server:
+  port: 55123
+  shutdown: graceful
+  compression:
+    enabled: true
+
+spring:
+  application:
+    name: Social Platform
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3311/social?useUnicode=true&serverTimezone=Asia/Seoul
+    username: root
+    password: password
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_batch_fetch_size: 100
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: social
+  data:
+    mongodb:
+      uri: mongodb://mongoadmin:mongopassword@localhost:27017
+      database: social
+
+logging:
+  level:
+    ROOT: INFO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql: TRACE

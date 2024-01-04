@@ -1,0 +1,95 @@
+version: '3.8'
+
+services:
+  rdbms:
+    container_name: mysql
+    restart: always
+    image: mysql:5.7
+    platform: linux/amd64
+    ports:
+      - "3311:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: social
+      MYSQL_ROOT_PASSWORD: password
+      TZ: 'Asia/Seoul'
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+    networks:
+      - default-network
+
+  nosql:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: mongopassword
+    volumes:
+      - mongodb-data:/data/db
+    healthcheck:
+      test: [ "CMD","mongosh", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    networks:
+      - default-network
+
+  application:
+    container_name: app
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "8080:55123"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/social?useSSL=false&allowPublicKeyRetrieval=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+    depends_on:
+      rdbms:
+        condition: service_healthy
+      nosql:
+        condition: service_healthy
+    networks:
+      - default-network
+
+  zookeeper:
+    container_name: zookeeper
+    image: wurstmeister/zookeeper
+    ports:
+      - "2181:2181"
+    networks:
+      - default-network
+
+  kafka:
+    container_name: kafka
+    image: wurstmeister/kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - zookeeper
+    networks:
+      - default-network
+
+networks:
+  default-network:
+
+volumes:
+  mysql-data:
+  mongodb-data:
