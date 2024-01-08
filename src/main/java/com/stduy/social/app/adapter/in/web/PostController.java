@@ -1,4 +1,4 @@
-package com.stduy.social.adapter.in.web;
+package com.stduy.social.app.adapter.in.web;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stduy.social.application.command.CreatePostUseCase;
-import com.stduy.social.application.dto.CreatePostRequest;
+import com.stduy.social.app.application.command.CreatePostUseCase;
+import com.stduy.social.app.application.dto.CreatePostRequest;
 
 import lombok.RequiredArgsConstructor;
 

@@ -1,6 +1,6 @@
-package com.stduy.social.application.dto;
+package com.stduy.social.app.application.dto;
 
-import com.stduy.social.domain.Post;
+import com.stduy.social.app.domain.Post;
 
 import lombok.Getter;
 

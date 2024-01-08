@@ -1,9 +1,9 @@
-package com.stduy.social.adapter.out.persistence;
+package com.stduy.social.app.adapter.out.persistence;
 
 import org.springframework.stereotype.Component;
 
-import com.stduy.social.application.port.out.CreatePostPort;
-import com.stduy.social.domain.Post;
+import com.stduy.social.app.application.port.out.CreatePostPort;
+import com.stduy.social.app.domain.Post;
 
 import lombok.RequiredArgsConstructor;
 

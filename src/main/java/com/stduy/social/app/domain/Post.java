@@ -1,4 +1,4 @@
-package com.stduy.social.domain;
+package com.stduy.social.app.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
