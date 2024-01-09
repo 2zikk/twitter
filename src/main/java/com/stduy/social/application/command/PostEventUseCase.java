@@ -3,7 +3,7 @@ package com.stduy.social.application.command;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
 
-import com.stduy.social.domain.CreatePostEvent;
+import com.stduy.social.domain.event.CreatePostEvent;
 
 @Component
 public class PostEventUseCase {

@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.stduy.social.application.dto.CreatePostRequest;
 import com.stduy.social.application.port.out.CreatePostPort;
 import com.stduy.social.application.port.out.RecordEventPort;
-import com.stduy.social.domain.CreatePostEvent;
+import com.stduy.social.domain.event.CreatePostEvent;
 import com.stduy.social.domain.Post;
 
 import lombok.RequiredArgsConstructor;

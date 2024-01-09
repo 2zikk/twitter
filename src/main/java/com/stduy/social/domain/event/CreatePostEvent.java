@@ -1,7 +1,8 @@
-package com.stduy.social.domain;
+package com.stduy.social.domain.event;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.stduy.social.domain.Post;
 
 public class CreatePostEvent {
     private Long postId;
