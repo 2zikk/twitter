@@ -34,4 +34,12 @@ public class Post {
     public Long getId() {
         return postId;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
 }
