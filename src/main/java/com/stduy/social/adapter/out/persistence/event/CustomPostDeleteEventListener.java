@@ -1,10 +1,10 @@
-package com.stduy.social.application.event;
+package com.stduy.social.adapter.out.persistence.event;
 
 import com.stduy.social.domain.Post;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.event.spi.PostInsertEvent;
-import org.hibernate.event.spi.PostInsertEventListener;
+import org.hibernate.event.spi.PostDeleteEvent;
+import org.hibernate.event.spi.PostDeleteEventListener;
 import org.hibernate.persister.entity.EntityPersister;
 import org.springframework.stereotype.Component;
 
@@ -13,12 +13,12 @@ import java.util.concurrent.ExecutorService;
 @Component
 @Slf4j
 @RequiredArgsConstructor
-public class CustomPostInsertEventListener implements PostInsertEventListener {
+public class CustomPostDeleteEventListener implements PostDeleteEventListener {
     private final ExecutorService executorService;
 
     @Override
-    public void onPostInsert(PostInsertEvent event) {
-        log.info("emit post insert event");
+    public void onPostDelete(PostDeleteEvent event) {
+        log.info("emit post delete event");
         if (event.getEntity() instanceof Post) {
             executorService.submit(() -> log.info("run thread"));
         }

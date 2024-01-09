@@ -1,5 +1,8 @@
-package com.stduy.social.application.event;
+package com.stduy.social.adapter.out.persistence.event;
 
+import com.stduy.social.adapter.out.persistence.event.CustomPostDeleteEventListener;
+import com.stduy.social.adapter.out.persistence.event.CustomPostInsertEventListener;
+import com.stduy.social.adapter.out.persistence.event.CustomPostUpdateEventListener;
 import jakarta.annotation.PostConstruct;
 import jakarta.persistence.EntityManagerFactory;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.stduy.social.application.event;
+package com.stduy.social.adapter.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
