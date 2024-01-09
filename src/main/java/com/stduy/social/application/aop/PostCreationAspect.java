@@ -1,6 +1,6 @@
-package com.stduy.social.application.event;
+package com.stduy.social.application.aop;
 
-import com.stduy.social.adapter.in.event.PostEventListener;
+import com.stduy.social.adapter.in.consumer.PostEventListener;
 import com.stduy.social.domain.event.PostCreatedEvent;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;

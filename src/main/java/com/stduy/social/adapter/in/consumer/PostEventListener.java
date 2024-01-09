@@ -1,4 +1,4 @@
-package com.stduy.social.adapter.in.event;
+package com.stduy.social.adapter.in.consumer;
 
 import com.stduy.social.domain.event.PostCreatedEvent;
 import org.slf4j.Logger;
