@@ -1,6 +1,6 @@
 package com.stduy.social.application.event;
 
-import com.stduy.social.app.domain.Post;
+import com.stduy.social.domain.Post;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.event.spi.PostDeleteEvent;
