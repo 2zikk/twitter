@@ -1,6 +1,6 @@
 package com.stduy.social.adapter.in.event;
 
-import com.stduy.social.domain.PostCreatedEvent;
+import com.stduy.social.domain.event.PostCreatedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.event.EventListener;

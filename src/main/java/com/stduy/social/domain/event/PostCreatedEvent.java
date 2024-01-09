@@ -1,4 +1,4 @@
-package com.stduy.social.domain;
+package com.stduy.social.domain.event;
 
 import org.springframework.context.ApplicationEvent;
 

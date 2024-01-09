@@ -1,7 +1,7 @@
-package com.stduy.social.adapter.out.event;
+package com.stduy.social.application.event;
 
 import com.stduy.social.adapter.in.event.PostEventListener;
-import com.stduy.social.domain.PostCreatedEvent;
+import com.stduy.social.domain.event.PostCreatedEvent;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.slf4j.Logger;
