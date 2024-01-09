@@ -62,17 +62,22 @@ Commander의 추가 기준은 모델의 복잡도에 따라 달라집니다. 단
 buckpal
 └── account
     ├── adapter
+    │   ├── config
     │   ├── in
+    │   │   └── consumer
     │   │   └── web
     │   │       └── AccountController
     │   └── out
     │       └── persistence
+    │           ├── event  
     │           ├── AccountPersistenceAdapter
     │           └── SpringDataAccountRepository
     ├── domain
+    │   ├── event
     │   ├── Account
     │   └── Activity
     └── application
+        ├── aop
         ├── DTO
         ├── query
         │   └── ReadMoneyUseCase
