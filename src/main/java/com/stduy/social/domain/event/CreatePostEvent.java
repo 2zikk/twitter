@@ -1,9 +1,11 @@
 package com.stduy.social.domain.event;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.stduy.social.domain.Post;
 
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class CreatePostEvent {
     private Long postId;
     private String title;
@@ -15,6 +17,9 @@ public class CreatePostEvent {
         this.content = post.getContent();
     }
 
+    public CreatePostEvent() {
+    }
+
     public EventRecorder toEntity() {
         final EventRecorder eventRecorder;
         try {
@@ -23,5 +28,14 @@ public class CreatePostEvent {
             throw new RuntimeException(e);
         }
         return eventRecorder;
+    }
+
+    @Override
+    public String toString() {
+        return "CreatePostEvent{" +
+                "postId=" + postId +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

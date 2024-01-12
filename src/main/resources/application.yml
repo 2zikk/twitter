@@ -25,6 +25,8 @@ spring:
     bootstrap-servers: localhost:9092
     consumer:
       group-id: social
+    topic:
+      post: social.cdc.post
   data:
     mongodb:
       uri: mongodb://mongoadmin:mongopassword@localhost:27017
